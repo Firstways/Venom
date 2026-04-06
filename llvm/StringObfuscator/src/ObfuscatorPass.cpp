@@ -95,13 +95,13 @@ static void addDecoder(Module& M,
 
 // --------------------------------------------------
 // La passe principale
+// M est le code 
 // --------------------------------------------------
 PreservedAnalyses StringObfuscatorPass::run(Module& M,
                                             ModuleAnalysisManager& MAM) {
+    // chiffrement des strings
     auto& ctx = M.getContext();
-    uint8_t key = 0x42; // clé XOR
-
-    // Liste des strings qu'on a chiffrées
+    uint8_t key = 0x42;
     std::vector<std::pair<GlobalVariable*, uint8_t>> obfuscated;
 
     for (GlobalVariable& gv : M.globals()) {
@@ -140,6 +140,15 @@ PreservedAnalyses StringObfuscatorPass::run(Module& M,
 
     // Ajouter la fonction de décodage automatique
     addDecoder(M, obfuscated);
+
+    // chiffrement des strings
+    auto& ctx = M.getContext();
+    uint8_t key = 0x42;
+
+    for (GlobalVariable& gv : M.globals()) {
+        if (!gv.isConstant() || !gv.hasInitializer())
+        continue;
+
 
     return PreservedAnalyses::none(); // on a modifié le module
 }

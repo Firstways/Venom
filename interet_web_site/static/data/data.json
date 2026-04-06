@@ -1,0 +1,20 @@
+{
+  "name": "PC-ATTACK-01",
+  "ip": "192.168.56.101",
+  "os": "Windows 10",
+  "user": "victim",
+  "credentials": [
+    "admin:password123",
+    "victim:qwerty"
+  ],
+  "network": [
+    "192.168.1.1:80",
+    "8.8.8.8:53"
+  ],
+  "files": [
+    {
+      "filename": "note.txt",
+      "data": "SGVsbG8gd29ybGQgISBUZXN0IGZpbGUu"
+    }
+  ]
+}
