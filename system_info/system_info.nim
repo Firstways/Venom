@@ -130,7 +130,7 @@ proc getAntivirus(): string =
       result &= "  - " & name & "\n"
       RegCloseKey(hKey)
 
-proc getSystemInfo(): JsonNode =
+proc getSystemInfo*(): JsonNode =
   result = %*{
     "timestamp": getTime().format("yyyy-MM-dd HH:mm:ss"),
     "hostname": getEnv("COMPUTERNAME"),

