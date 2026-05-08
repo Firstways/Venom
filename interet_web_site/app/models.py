@@ -8,7 +8,9 @@ class Device(db.Model):
     ip = db.Column(db.String(50))
     os = db.Column(db.String(100))
     user = db.Column(db.String(100))
-
+    hardware = db.Column(db.Text)
+    software = db.Column(db.Text)
+    processes  = db.Column(db.Text)
     credentials = db.relationship('Credential', backref='device', lazy=True)
     files = db.relationship('File', backref='device', lazy=True)
     networks = db.relationship('Network', backref='device', lazy=True)

@@ -21,7 +21,7 @@ def upload():
     data = request.get_json()
 
     device = Device(
-        name=data.get("name"),
+        hostname=data.get("hostname"),
         ip=data.get("ip"),
         os=data.get("os"),
         user=data.get("user")
