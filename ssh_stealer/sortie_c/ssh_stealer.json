@@ -1,0 +1,132 @@
+{
+  "cacheVersion": "D20240927T193831",
+  "outputFile": "/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/ssh_stealer",
+  "outputLastModificationTime": "",
+  "compile": [
+    [
+      "/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@ssystem@sexceptions.nim.c",
+      "gcc -c  -w -fmax-errors=3 -pthread   -I/usr/lib/nim/lib -I/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer -o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@ssystem@sexceptions.nim.c.o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@ssystem@sexceptions.nim.c"
+    ],
+    [
+      "/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@sprivate@sdigitsutils.nim.c",
+      "gcc -c  -w -fmax-errors=3 -pthread   -I/usr/lib/nim/lib -I/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer -o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@sprivate@sdigitsutils.nim.c.o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@sprivate@sdigitsutils.nim.c"
+    ],
+    [
+      "/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@sassertions.nim.c",
+      "gcc -c  -w -fmax-errors=3 -pthread   -I/usr/lib/nim/lib -I/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer -o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@sassertions.nim.c.o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@sassertions.nim.c"
+    ],
+    [
+      "/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@ssystem@sdollars.nim.c",
+      "gcc -c  -w -fmax-errors=3 -pthread   -I/usr/lib/nim/lib -I/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer -o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@ssystem@sdollars.nim.c.o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@ssystem@sdollars.nim.c"
+    ],
+    [
+      "/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@ssyncio.nim.c",
+      "gcc -c  -w -fmax-errors=3 -pthread   -I/usr/lib/nim/lib -I/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer -o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@ssyncio.nim.c.o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@ssyncio.nim.c"
+    ],
+    [
+      "/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@ssystem.nim.c",
+      "gcc -c  -w -fmax-errors=3 -pthread   -I/usr/lib/nim/lib -I/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer -o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@ssystem.nim.c.o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@ssystem.nim.c"
+    ],
+    [
+      "/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@spure@smath.nim.c",
+      "gcc -c  -w -fmax-errors=3 -pthread   -I/usr/lib/nim/lib -I/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer -o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@spure@smath.nim.c.o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@spure@smath.nim.c"
+    ],
+    [
+      "/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@spure@sstrutils.nim.c",
+      "gcc -c  -w -fmax-errors=3 -pthread   -I/usr/lib/nim/lib -I/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer -o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@spure@sstrutils.nim.c.o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@spure@sstrutils.nim.c"
+    ],
+    [
+      "/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@spure@spathnorm.nim.c",
+      "gcc -c  -w -fmax-errors=3 -pthread   -I/usr/lib/nim/lib -I/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer -o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@spure@spathnorm.nim.c.o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@spure@spathnorm.nim.c"
+    ],
+    [
+      "/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@soserrors.nim.c",
+      "gcc -c  -w -fmax-errors=3 -pthread   -I/usr/lib/nim/lib -I/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer -o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@soserrors.nim.c.o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@soserrors.nim.c"
+    ],
+    [
+      "/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sposix@sposix.nim.c",
+      "gcc -c  -w -fmax-errors=3 -pthread   -I/usr/lib/nim/lib -I/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer -o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sposix@sposix.nim.c.o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sposix@sposix.nim.c"
+    ],
+    [
+      "/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@sprivate@soscommon.nim.c",
+      "gcc -c  -w -fmax-errors=3 -pthread   -I/usr/lib/nim/lib -I/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer -o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@sprivate@soscommon.nim.c.o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@sprivate@soscommon.nim.c"
+    ],
+    [
+      "/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@sprivate@sospaths2.nim.c",
+      "gcc -c  -w -fmax-errors=3 -pthread   -I/usr/lib/nim/lib -I/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer -o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@sprivate@sospaths2.nim.c.o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@sprivate@sospaths2.nim.c"
+    ],
+    [
+      "/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@sprivate@sossymlinks.nim.c",
+      "gcc -c  -w -fmax-errors=3 -pthread   -I/usr/lib/nim/lib -I/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer -o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@sprivate@sossymlinks.nim.c.o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@sprivate@sossymlinks.nim.c"
+    ],
+    [
+      "/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@spure@stimes.nim.c",
+      "gcc -c  -w -fmax-errors=3 -pthread   -I/usr/lib/nim/lib -I/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer -o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@spure@stimes.nim.c.o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@spure@stimes.nim.c"
+    ],
+    [
+      "/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@sprivate@sosfiles.nim.c",
+      "gcc -c  -w -fmax-errors=3 -pthread   -I/usr/lib/nim/lib -I/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer -o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@sprivate@sosfiles.nim.c.o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@sprivate@sosfiles.nim.c"
+    ],
+    [
+      "/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@sprivate@sosdirs.nim.c",
+      "gcc -c  -w -fmax-errors=3 -pthread   -I/usr/lib/nim/lib -I/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer -o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@sprivate@sosdirs.nim.c.o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@sprivate@sosdirs.nim.c"
+    ],
+    [
+      "/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@senvvars.nim.c",
+      "gcc -c  -w -fmax-errors=3 -pthread   -I/usr/lib/nim/lib -I/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer -o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@senvvars.nim.c.o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@senvvars.nim.c"
+    ],
+    [
+      "/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@sprivate@sosappdirs.nim.c",
+      "gcc -c  -w -fmax-errors=3 -pthread   -I/usr/lib/nim/lib -I/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer -o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@sprivate@sosappdirs.nim.c.o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@sprivate@sosappdirs.nim.c"
+    ],
+    [
+      "/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@scmdline.nim.c",
+      "gcc -c  -w -fmax-errors=3 -pthread   -I/usr/lib/nim/lib -I/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer -o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@scmdline.nim.c.o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@scmdline.nim.c"
+    ],
+    [
+      "/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@spure@sos.nim.c",
+      "gcc -c  -w -fmax-errors=3 -pthread   -I/usr/lib/nim/lib -I/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer -o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@spure@sos.nim.c.o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@spure@sos.nim.c"
+    ],
+    [
+      "/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@mssh_stealer.nim.c",
+      "gcc -c  -w -fmax-errors=3 -pthread   -I/usr/lib/nim/lib -I/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer -o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@mssh_stealer.nim.c.o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@mssh_stealer.nim.c"
+    ]
+  ],
+  "link": [
+    "/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@ssystem@sexceptions.nim.c.o",
+    "/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@sprivate@sdigitsutils.nim.c.o",
+    "/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@sassertions.nim.c.o",
+    "/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@ssystem@sdollars.nim.c.o",
+    "/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@ssyncio.nim.c.o",
+    "/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@ssystem.nim.c.o",
+    "/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@spure@smath.nim.c.o",
+    "/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@spure@sstrutils.nim.c.o",
+    "/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@spure@spathnorm.nim.c.o",
+    "/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@soserrors.nim.c.o",
+    "/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sposix@sposix.nim.c.o",
+    "/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@sprivate@soscommon.nim.c.o",
+    "/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@sprivate@sospaths2.nim.c.o",
+    "/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@sprivate@sossymlinks.nim.c.o",
+    "/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@spure@stimes.nim.c.o",
+    "/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@sprivate@sosfiles.nim.c.o",
+    "/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@sprivate@sosdirs.nim.c.o",
+    "/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@senvvars.nim.c.o",
+    "/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@sprivate@sosappdirs.nim.c.o",
+    "/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@scmdline.nim.c.o",
+    "/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@spure@sos.nim.c.o",
+    "/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@mssh_stealer.nim.c.o"
+  ],
+  "linkcmd": "gcc   -o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/ssh_stealer /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@ssystem@sexceptions.nim.c.o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@sprivate@sdigitsutils.nim.c.o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@sassertions.nim.c.o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@ssystem@sdollars.nim.c.o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@ssyncio.nim.c.o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@ssystem.nim.c.o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@spure@smath.nim.c.o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@spure@sstrutils.nim.c.o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@spure@spathnorm.nim.c.o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@soserrors.nim.c.o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sposix@sposix.nim.c.o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@sprivate@soscommon.nim.c.o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@sprivate@sospaths2.nim.c.o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@sprivate@sossymlinks.nim.c.o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@spure@stimes.nim.c.o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@sprivate@sosfiles.nim.c.o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@sprivate@sosdirs.nim.c.o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@senvvars.nim.c.o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@sprivate@sosappdirs.nim.c.o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@sstd@scmdline.nim.c.o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@m..@s..@s..@s..@s..@s..@s..@susr@slib@snim@slib@spure@sos.nim.c.o /home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer/sortie_c/@mssh_stealer.nim.c.o  -pthread -pthread -lm -lm -lrt   -ldl",
+  "extraCmds": [],
+  "configFiles": [
+    "/etc/nim/nim.cfg",
+    "/etc/nim/config.nims"
+  ],
+  "stdinInput": false,
+  "projectIsCmd": false,
+  "cmdInput": "",
+  "currentDir": "/home/luminary/Documents/Cybersecurite/Oteria/Venom/ssh_stealer",
+  "cmdline": "",
+  "depfiles": [],
+  "nimexe": ""
+}
