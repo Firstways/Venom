@@ -4,7 +4,7 @@ db = SQLAlchemy()
 
 class Device(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(100))
+    hostname = db.Column(db.String(100))
     ip = db.Column(db.String(50))
     os = db.Column(db.String(100))
     user = db.Column(db.String(100))
