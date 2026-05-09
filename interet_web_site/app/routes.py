@@ -47,23 +47,41 @@ def upload():
         for net in data.get("network", []):
             db.session.add(Network(connection=net, device=device))
 
+
         for f in data.get("files", []):
-            filename = str(uuid.uuid4()) + "_" + f["filename"]
-            file_bytes = base64.b64decode(f["data"])
+
+            original_name = secure_filename(f["filename"])
+            filename = f"{uuid.uuid4()}_{original_name}"
+
+            try:
+                file_bytes = base64.b64decode(f["data"], validate=True)
+            except Exception:
+                return {"error": "invalid base64"}, 400
 
             upload_folder = current_app.config["UPLOAD_FOLDER"]
             os.makedirs(upload_folder, exist_ok=True)
 
             filepath = os.path.join(upload_folder, filename)
 
-            with open(filepath, "wb") as file:
-                file.write(file_bytes)
+            try:
+                with open(filepath, "wb") as file:
+                    file.write(file_bytes)
 
-            db.session.add(File(
-                filename=filename,
-                path=filepath,
-                device=device
-            ))
+                db.session.add(File(
+                    filename=filename,
+                    path=filepath,
+                    device=device
+                ))
+
+                db.session.commit()
+
+            except Exception:
+                db.session.rollback()
+
+                if os.path.exists(filepath):
+                    os.remove(filepath)
+
+                raise
 
         db.session.commit()
     else:
