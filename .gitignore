@@ -11,3 +11,18 @@ __pycache__/
 test/
 Thumbs.db
 .DS_Store
+
+# Binaires dans les modules
+*.exe
+!build.bat
+
+# Build LLVM
+build/
+*.so
+*.o
+*.a
+
+# Temporaires
+*.tmp
+*.log
+*.cache
