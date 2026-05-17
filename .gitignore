@@ -1,0 +1,13 @@
+*.exe
+*.dll
+*.o
+*.c
+nimcache/
+sortie_c/
+__pycache__/
+*.pyc
+*.zip
+*.json
+test/
+Thumbs.db
+.DS_Store
