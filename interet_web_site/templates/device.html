@@ -82,8 +82,15 @@
             <div class="kanban-title">💻 System</div>
 
             <div class="card-custom">OS: {{ device.os }}</div>
+            <div class="card-custom">Hostname: {{ device.hostname }}</div>
+
             <div class="card-custom">User: {{ device.user }}</div>
             <div class="card-custom">IP: {{ device.ip }}</div>
+            <div class="card-custom">Hardware {{device.hardware}}</div>
+            <div class="card-custom">Software {{device.software}}</div>
+            <div class="card-custom">processes {{device}}</div>
+
+
         </div>
     </div>
 
@@ -104,33 +111,30 @@
         </div>
     </div>
 
-    <!-- FILES -->
-    <div class="col-md-3">
-        <div class="kanban-column">
-            <div class="kanban-title">📂 Files</div>
 
-            {% if device.files %}
-                {% for file in device.files %}
-                    <div class="card-custom">
 
-                        <strong>{{ file.filename }}</strong>
+<!-- FILES -->
+<div class="col-md-3">
+    <div class="kanban-column">
+        <div class="kanban-title">📂 Files</div>
 
-                        <!-- IMAGE PREVIEW -->
-                        {% if file.filename.endswith('.png') or file.filename.endswith('.jpg') or file.filename.endswith('.jpeg') %}
-                            <img src="/{{ file.path }}" style="width:100%">
-                        {% else %}
-                            <div class="mt-2">
-                                <a href="/{{ file.path }}" target="_blank">⬇️ Télécharger</a>
-                            </div>
-                        {% endif %}
+        {% if device.files %}
+            {% for file in device.files %}
+                <div class="card-custom">
+                    <strong>{{ file.filename }}</strong>
 
+                    <div class="mt-2">
+                        <a href="{{ url_for('main.download_file', file_id=file.id) }}" class="btn btn-sm btn-outline-info">⬇️ {{ file.filename }}</a>
                     </div>
-                {% endfor %}
-            {% else %}
-                <p>Aucun fichier</p>
-            {% endif %}
-        </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>Aucun fichier</p>
+        {% endif %}
     </div>
+</div>
+
+
 
     <!-- NETWORK -->
     <div class="col-md-3">

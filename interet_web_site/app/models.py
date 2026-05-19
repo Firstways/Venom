@@ -7,6 +7,8 @@ class Device(db.Model):
     hostname = db.Column(db.String(100))
     ip = db.Column(db.String(50))
     os = db.Column(db.String(100))
+    name = db.Column(db.String(200))
+
     user = db.Column(db.String(100))
     hardware = db.Column(db.Text)
     software = db.Column(db.Text)
@@ -25,7 +27,7 @@ class Credential(db.Model):
 class File(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     filename = db.Column(db.String(200))
-    path = db.Column(db.String(300))
+    data = db.Column(db.LargeBinary, nullable=False)
     device_id = db.Column(db.Integer, db.ForeignKey('device.id'))
 
 

